@@ -1,0 +1,29 @@
+<% if flash[:success] %>
+  <div class="notice"><%= flash[:success] %></div>
+<% end %>
+
+<% if flash[:error] %>
+    <div class="alert"><%= flash[:error] %></div>   
+<% end %>
+
+
+<h1><%= @kitten.name %></h1>
+<p>
+  <strong>Age:</strong>
+  <%= @kitten.age %>
+</p>
+<p>
+  <strong>Cuteness:</strong>
+  <%= @kitten.cuteness %>
+</p>
+<p>
+  <strong>Softness:</strong>
+  <%= @kitten.softness %>
+</p>
+
+<%= link_to "Home", root_path %> |
+<%= link_to "Edit", edit_kitten_path(@kitten) %> | 
+<%= link_to "Delete", kitten_path(@kitten), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+} %>
